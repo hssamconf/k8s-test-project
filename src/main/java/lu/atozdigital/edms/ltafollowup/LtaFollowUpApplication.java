@@ -18,7 +18,7 @@ public class LtaFollowUpApplication {
     }
 
     @GetMapping("/config")
-    public ResponseEntity<?> getConfig() throws InterruptedException {
+    public ResponseEntity<Map<String,Object>> getConfig(){
         return ResponseEntity.ok(Map.of(
                 "Thread", Thread.currentThread().getName(),
                 "HostName", Optional.ofNullable(System.getenv("HOSTNAME"))
