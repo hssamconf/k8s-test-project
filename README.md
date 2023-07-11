@@ -27,7 +27,7 @@ Follow the steps below to get the Spring Boot application up and running on a lo
 
 3. Build the Docker image for the Spring Boot application:  
    ```
-   docker build -t spring-boot-app .
+   docker build -t spring-boot-app-image .
    ```
 
 4. Start Minikube cluster:  
@@ -53,7 +53,7 @@ Follow the steps below to get the Spring Boot application up and running on a lo
 
 8. Access the application:  
    ```
-   minikube service spring-boot-app-service --url
+   minikube service spring-boot-app-svc --url
    ```
 
 The application should now be accessible in your browser.
@@ -64,9 +64,7 @@ The repository contains the following files and folders:
 
 - `src/`: Source code directory for the Spring Boot application.
 - `Dockerfile`: Dockerfile for building the Docker image.
-- `kubernetes/`: Folder containing Kubernetes deployment and service configurations.
-  - `deployment.yaml`: Deployment configuration for the Spring Boot application.
-  - `service.yaml`: Service configuration for exposing the application.
+- `k8s.yaml`: Kubernetes deployment & service configuration for the Spring Boot application.
 
 ## Contributing
 
