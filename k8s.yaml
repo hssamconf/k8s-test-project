@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: lta-follow-up-dpl
+  name: spring-boot-app-dpl
 spec:
   selector:
     matchLabels:
-      app: lta-follow-up
+      app: spring-boot-app
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: lta-follow-up
+        app: spring-boot-app
     spec:
       containers:
-        - name: lta-follow-up
-          image: houssam:latest
+        - name: spring-boot-app
+          image: spring-boot-app-image:latest
           # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: lta-follow-up-svc
+  name: spring-boot-app-svc
 spec:
   selector:
-    app: lta-follow-up
+    app: spring-boot-app
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
