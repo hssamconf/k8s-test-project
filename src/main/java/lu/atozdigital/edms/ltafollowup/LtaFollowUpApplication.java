@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @Controller
@@ -20,7 +19,6 @@ public class LtaFollowUpApplication {
 
     @GetMapping("/config")
     public ResponseEntity<?> getConfig() throws InterruptedException {
-        TimeUnit.MINUTES.sleep(1);
         return ResponseEntity.ok(Map.of(
                 "Thread", Thread.currentThread().getName(),
                 "HostName", Optional.ofNullable(System.getenv("HOSTNAME"))
